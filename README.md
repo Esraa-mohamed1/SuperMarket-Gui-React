@@ -1,9 +1,6 @@
 # Supermarket GUI Task (React)
 
-Uploading supermarket.mp4…
-
-
-
+https://github.com/user-attachments/assets/5ee64921-2f5e-426c-910d-755043870c00
 
 
 ## 📌 Project Overview
