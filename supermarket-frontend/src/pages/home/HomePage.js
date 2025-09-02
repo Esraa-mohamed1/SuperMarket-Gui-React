@@ -91,7 +91,7 @@ const HomePage = () => {
             <p className="fs-4 mb-4">Shop from our wide selection of fresh produce, dairy, meat, and pantry essentials.</p>
             <div className="d-flex flex-wrap gap-3">
               <Button size="lg">Shop Now</Button>
-              <Button variant="outline" size="lg" className="bg-white bg-opacity-25">View Deals</Button>
+              <Button variant="outline" size="lg" className="bg-white bg-opacity-50">View Deals</Button>
             </div>
           </div>
         </div>

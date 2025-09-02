@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '../../components/layout/Layout';
 import ProductCard from '../../components/ui/ProductCard';
+import { Link } from 'react-router-dom';
 
 // Mock data for demonstration
 const allProducts = [
@@ -92,6 +93,15 @@ const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [sortBy, setSortBy] = useState('featured');
   const [searchQuery, setSearchQuery] = useState('');
+  
+  // Check for search query in URL parameters
+  React.useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const search = queryParams.get('search');
+    if (search) {
+      setSearchQuery(search);
+    }
+  }, []);
 
   // Filter products based on category and search query
   const filteredProducts = allProducts.filter(product => {
@@ -117,11 +127,11 @@ const ProductsPage = () => {
 
   return (
     <Layout>
-      <div className="container py-4">
+      <div className="container py-4" style={{ backgroundColor: '#FFF8F0' }}>
         <h1 className="fs-2 fw-bold mb-4">All Products</h1>
         
         {/* Search and Filter Section */}
-        <div className="bg-white rounded shadow p-4 mb-4">
+        <div className="bg-white rounded shadow p-4 mb-4" style={{ borderTop: '3px solid #FF8C00' }}>
           <div className="row g-3">
             <div className="col-md-6 position-relative">
               <div className="input-group">
@@ -193,7 +203,8 @@ const ProductsPage = () => {
                 setSelectedCategory('All');
                 setSortBy('featured');
               }}
-              className="mt-3 btn btn-success"
+              className="mt-3 btn" 
+              style={{ backgroundColor: '#FF8C00', color: 'white' }}
             >
               Reset Filters
             </button>
@@ -204,18 +215,18 @@ const ProductsPage = () => {
         <nav aria-label="Page navigation" className="mt-4">
           <ul className="pagination justify-content-center">
             <li className="page-item">
-              <a className="page-link" href="#" aria-label="Previous">
+              <a className="page-link" href="#" aria-label="Previous" style={{ color: '#FF8C00', borderColor: '#FFD8B1' }}>
                 <span aria-hidden="true">
                   <i className="bi bi-chevron-left"></i>
                 </span>
                 <span className="visually-hidden">Previous</span>
               </a>
             </li>
-            <li className="page-item active"><a className="page-link" href="#">1</a></li>
-            <li className="page-item"><a className="page-link" href="#">2</a></li>
-            <li className="page-item"><a className="page-link" href="#">3</a></li>
+            <li className="page-item active"><a className="page-link" href="#" style={{ backgroundColor: '#FF8C00', borderColor: '#FF8C00' }}>1</a></li>
+            <li className="page-item"><a className="page-link" href="#" style={{ color: '#FF8C00', borderColor: '#FFD8B1' }}>2</a></li>
+            <li className="page-item"><a className="page-link" href="#" style={{ color: '#FF8C00', borderColor: '#FFD8B1' }}>3</a></li>
             <li className="page-item">
-              <a className="page-link" href="#" aria-label="Next">
+              <a className="page-link" href="#" aria-label="Next" style={{ color: '#FF8C00', borderColor: '#FFD8B1' }}>
                 <span aria-hidden="true">
                   <i className="bi bi-chevron-right"></i>
                 </span>
